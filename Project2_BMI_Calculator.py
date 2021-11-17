@@ -1,0 +1,5 @@
+##Project2 : Bio Mass Index Calculator (BMI)
+weight= int(input ("Enter your weight in kg: "))
+height=float(input("Enter your height in m: "))
+BMI= weight/(height**2)
+print("Your BMI is {} kg/m2".format(BMI))
