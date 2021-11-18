@@ -12,6 +12,6 @@ elif (BMI > 25 and BMI < 30):
     print("Your BMI is {} kg/m2 and you are slightly over weight".format(BMI))
 elif (BMI > 30 and BMI < 35):
     print("Your BMI is {} kg/m2 and you are obese".format(BMI))
-elif (BMI > 35):
+else:
     print("Your BMI is {} kg/m2 and you are clinically obese".format(BMI))
   
