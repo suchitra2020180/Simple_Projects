@@ -15,17 +15,13 @@
 ## Cards are not removed from the deck  as they are drawn.
 
 import random
-game=str.upper(input("Do you want to play a game of blackjack? Type Y for yes and N for no: "))
+
 #from ascii_logos import blackjack_logo
 #print(blackjack_logo)
-game='Y'
-if game=='Y':
+
+def black_jack():
     #from ascii_logos import blackjack_logo
     #print(blackjack_logo)
-    A=11
-    J=10
-    Q=10
-    K=10
     #cards=['A', 2, 3,4 ,5, 6,7,8, 9, 10,'J','Q','K']
     cards=[11, 2, 3,4 ,5, 6,7,8, 9, 10,10,10,10]
     your_cards=[]
@@ -38,7 +34,7 @@ if game=='Y':
         computer_choice=random.choice(cards)
         computer_cards.append(computer_choice)
         
-    
+    ''' Take 2 cards randomly for user and computer'''
     
     for i in range(0,len(your_cards)):
         your_card_sum += your_cards[i]
@@ -46,7 +42,7 @@ if game=='Y':
     print([computer_cards[0], 'x'])
     for i in range(0, len(computer_cards)):
         computer_card_sum += computer_cards[i]
-        print(computer_card_sum)
+        #print(computer_card_sum)
 
     if your_card_sum < 17:
         your_input=str.upper(input("Want to pick one more card?- 'Y' for Yes and 'N' for No "))
@@ -57,8 +53,8 @@ if game=='Y':
         print("Computer picked a card.")
         computer_selected_cards=random.choice(cards)
         computer_cards.append(your_selected_cards)
-        your_card_sum=0
-        computer_card_sum=0
+    your_card_sum=0
+    computer_card_sum=0
     for i in your_cards:
         your_card_sum += i
     for i in computer_cards:
@@ -72,5 +68,15 @@ if game=='Y':
         print("Computer lose and You won")
     elif (your_card_sum > computer_card_sum and your_card_sum  <=21):
         print("You won")
+    else:
+        print("Computer won")
+    
+    
+
+game=str.upper(input(("Do you want to play the game of black jack. Type 'y' or 'n': ")))
+while game=='Y':
+    black_jack()
+    game=str.upper(input(("Do you want to play the game of black jack. Type 'y' or 'n': ")))
+
 
 
