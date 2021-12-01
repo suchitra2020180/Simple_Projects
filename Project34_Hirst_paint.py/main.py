@@ -5,14 +5,14 @@ t = turtle.Turtle()
 my_screen = turtle.Screen()
 print(my_screen.canvheight)
 # Extract colors from a image
-colors=colorgram.extract('DamienHirst.jpg', 20)
+colors = colorgram.extract('DamienHirst.jpg', 20)
 print(colors)
 rgb_colors = []
 for color in colors:
     r = color.rgb.r
     g = color.rgb.g
     b = color.rgb.b
-    new_color= (r, g, b)
+    new_color = (r, g, b)
     rgb_colors.append(new_color)
 
 print(rgb_colors)
@@ -22,11 +22,11 @@ t.setx(-500)
 t.sety(-200)
 t.pendown()
 
-for col in range(0,10):
+for col in range(0, 10):
     for row in range(0, 10):
         t.speed("fastest")
         sel_color = random.choice(rgb_colors)
-        print("selected color:",sel_color)
+        print("selected color:", sel_color)
         my_screen.colormode(255)
         t.pencolor(sel_color)
         # setting the fill color

@@ -1,5 +1,5 @@
 # Create a class to retrieve current question number from question_list
-# Create a class to retrieve current question number from question_list
+
 class QuizBrain:
     def __init__(self, ques_list):
         self.ques_num = 0
@@ -29,4 +29,3 @@ class QuizBrain:
 
         print(f"The correct answer was: {correct_answer}")
         print(f"Your current score is : {self.score}/{self.ques_num}")
-

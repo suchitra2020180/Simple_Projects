@@ -3,57 +3,56 @@
 # Control the snake using keyboard
 # Detect collision with Food
 # Create a score board an increase the score  when the snake hits the food
-# Game ends when snake hits the wall or snake collids with tail
+# Game ends when snake hits the wall or snake collides with tail
 
-import turtle
-from turtle import Turtle, Screen
+
+from turtle import Screen
 from Snake import Snake
+from food import Food
+from scoreboard import ScoreBoard
 import time
 my_screen = Screen()
-my_screen.setup(width=500, height=400)
+my_screen.setup(width=600, height=600)
 # screen color
 my_screen.bgcolor("black")
 my_screen.title("Snake Game")
 
-snake= Snake()
+snake = Snake()
+food = Food()
+scoreboard = ScoreBoard()
+game_is_on = True
+
+my_screen.listen()
+my_screen.onkey(fun=snake.move_upward, key="Up")
+my_screen.onkey(fun=snake.move_downward, key="Down")
+my_screen.onkey(fun=snake.move_right, key="Right")
+my_screen.onkey(fun=snake.move_left, key="Left")
 
 
-
-game_is_on =True
 while game_is_on:
-    my_screen.update
+    my_screen.update()
     time.sleep(0.1)
+    snake.move()
+
+    # Detect collision with food 10x10pixel and buffer is 5
+    if snake.head.distance(food) < 15:
+        food.refresh()
+        snake.extend()
+        scoreboard.increase_score()
+
+     # DETECT COLLISION WITH WALL
+    if snake.head.xcor() >280 or snake.head.xcor() <-280 or snake.head.ycor() >280 or snake.head.ycor() <-280:
+        game_is_on = False
+        scoreboard.game_over()
+
+    # DETECT COLLISION WITH OWN TAIL
+    # If head collids with any segment of snake body then game over
+    for segment in snake.snake_body[1:]:
+        if snake.head.distance(segment) < 10:
+            game_is_on = False
+            scoreboard.game_over()
 
 
-        i.forward(20)
-
-        #if t.xcor()==250:
 
 
-
-
-def move_upward():
-    t.heading()
-    t.setheading(90)
-
-def move_downward():
-    t.setheading(270)
-
-def move_right():
-    #t.setheading(0)
-    t.right(90)
-    t.forward(30)
-
-def move_left():
-    #t.setheading(180)
-    t.left(90)
-    t.forward(30)
-
-
-def direction():
-    my_screen.listen()
-    my_screen.onkeypress(fun=move_upward, key ="u")
-    my_screen.onkeypress(fun=move_downward, key="d")
-    my_screen.onkeypress(fun=move_right, key="r")
-    my_screen.onkeypress(fun=move_left, key="l")
 my_screen.exitonclick()

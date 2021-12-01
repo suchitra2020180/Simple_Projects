@@ -1,7 +1,7 @@
 
 from turtle import Turtle,Screen
 import random
-import turtle as t
+
 pointer = Turtle()
 print(pointer)
 # Change the pointer shape to turtle
@@ -40,10 +40,10 @@ def dashed_line():
 
 # Drawing shapes from triangle, square to decagon with same position but with random colors
 def change_color():
-    R = random.random()
-    G = random.random()
-    B = random.random()
-    pointer.color(R, G, B)
+    r = random.random()
+    g = random.random()
+    b = random.random()
+    pointer.color(r, g, b)
 
 
 def different_shapes():
@@ -76,7 +76,7 @@ def random_walk():
         pointer.forward(20)
 
 
-#random_walk()
+random_walk()
 
 def draw_spirograph(gap_between_circles):
     pointer.shape("arrow")
@@ -87,7 +87,7 @@ def draw_spirograph(gap_between_circles):
         pointer.setheading(pointer.heading() +gap_between_circles)
 
 
-draw_spirograph(5)
+#draw_spirograph(5)
 
 
 

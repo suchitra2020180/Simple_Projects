@@ -33,7 +33,7 @@ def clear():
     t.pendown()
 # Event listeners # Take inputs from user
 my_screen.listen()
-my_screen.onkey(fun=move_forward, key="space")
+# my_screen.onkey(fun=move_forward, key="space")
 my_screen.onkey(fun=move_forward, key="w")
 my_screen.onkey(fun=move_backward, key="s")
 my_screen.onkey(fun=move_Anticlockwise,key="a")
