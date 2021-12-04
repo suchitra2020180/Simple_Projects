@@ -8,6 +8,15 @@ print(data.head())
 new_dict = {row.letter: row.code for (index, row) in data.iterrows()}
 print(new_dict)
 
-name = str.upper(input("Enter a name: "))
-phonetics = [new_dict[letter] for letter in name]
-print(phonetics)
+entered_str=True
+def generate_phonetic():
+    name = str.upper(input("Enter a name: "))
+    try:
+        phonetics = [new_dict[letter] for letter in name]
+    except KeyError:
+        print("Sorry, Please enter only alphabets")
+        generate_phonetic()
+    else:
+        print(phonetics)
+
+generate_phonetic()

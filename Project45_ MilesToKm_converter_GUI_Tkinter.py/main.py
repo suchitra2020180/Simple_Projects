@@ -40,6 +40,6 @@ m_label.grid(column=2, row= 0)
 km_label = tkinter.Label(text="Km", font= ("Arial", 12))
 km_label.grid(column=2, row=1 )
 text_label = tkinter.Label(text="is equal to", font=("Arial", 12))
-text_label.grid(column=0, row= 1)
+text_label.grid(column=0, row=1)
 
 window.mainloop()
