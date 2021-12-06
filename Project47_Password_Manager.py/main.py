@@ -6,8 +6,9 @@ import tkinter
 from tkinter import *
 import random
 import string
-from tkinter import messagebox
+from tkinter import messagebox, Entry
 import pyperclip
+import json
 #------------------------------------Password Generator--------------------------------------
 
 
@@ -39,22 +40,67 @@ def adding():
     website = website_input.get()
     pass_word =Password_input.get()
     email = Email_input.get()
+    new_data = {
+        website:{
+            "email": email,
+            "password": pass_word
+
+        }
+
+
+    }
     # Creating popup to confirm the details for saving to a file
    # messagebox.showinfo(title="Title", message="Confirm the Details")
     messagebox.askokcancel(title=website, message=f"These are the details entered:Website:{website}, Email:{email}, Password:{pass_word}")
     # Append the email, password and website data entered by user
 
     if len(website)==0 or len(pass_word)==0:
-        messagebox.showinfo(title="Oops", message ="Please make sure you haven't left any field empty")
+        messagebox.showinfo(title="Oops", message="Please make sure you haven't left any field empty")
     else:
-        with open("Password_saver.txt", mode='a') as file:
-            file.write(f"Website:{website}  ,Email:{email}   ,Password:{pass_word}\n")
-        # After adding the details reset all the fields
-        website_input.delete(0, END)
-        # Email_input.delete(0, END) # We want this to stay on email
-        Password_input.delete(0, END)
-#----------------------------------Search function-----------
-def search_fun:
+        try:
+            with open("Password_saver.json", "r") as file:
+                # Reading the old data from file
+                data = json.load(file)
+        except FileNotFoundError:
+            with open("Password_saver.json", "w") as file:
+                json.dump(new_data, file, indent=4)
+        else:
+            # update the daa
+            data.update(new_data)
+            with open("Password_saver.json", "w") as file:
+                json.dump(data, file, indent=4)
+
+        finally:
+            # After adding the details reset all the fields
+            website_input.delete(0, END)
+            # Email_input.delete(0, END) # We want this to stay on email
+            Password_input.delete(0, END)
+
+
+
+
+#----------------------------------Search function-----------#
+def search_fun():
+    try:
+        with open("Password_saver.json", "r") as file:
+            # Reading the old data from file
+            data = json.load(file)
+
+    except FileNotFoundError:
+        with open("Password_saver.json", "w") as file:
+            json.dump(new_data, file, indent=4)
+
+    else:
+        if website_input.get() in data:
+            messagebox.showinfo(title=website_input.get(), message=f"Password: {data[website_input.get()]['password']}")
+        else:
+            messagebox.showinfo(title=website_input.get(), message="No record found")
+
+            #print(data[web])
+            #print(web)
+            #print(value['password'])
+            #print(data[web][value])
+
 
 
 # ----------------------------------------- UI setup --------------------------------------------
@@ -79,12 +125,12 @@ Email_label.grid(column=0, row=2)
 Password_label = Label(text="Password:", font=("Arial", 16), bg="white")
 Password_label.grid(column=0, row=3)
 
-website_input = Entry(width=35)
-website_input.grid(column=1, row=1, columnspan=2)
+website_input: Entry = Entry(width=21)
+website_input.grid(column=1, row=1) # COLUMNSPAN=2
 website_input.focus()
 website_input.get()
 
-search_button = Button(text="Search", command=search_fun, bg="white")
+search_button = Button(text="Search", command=search_fun, bg="white", width=13)
 search_button.grid(column=2, row=1)
 
 Email_input = Entry(width=35)
