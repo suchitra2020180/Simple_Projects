@@ -1,0 +1,24 @@
+q_list: [{'question': 'The flag of South Africa features 7 colours.', 'answer': 'False'},
+{'question': 'The surface area of Russia is slightly larger than that of the dwarf planet Pluto.', 'answer': 'True'},
+{'question': 'The longest place named in the United States is Lake Chargoggagoggmanchauggagoggchaubunagungamaugg, located near Webster, MA.', 'answer': 'True'},
+ {'question': 'The Southeast Asian island of Borneo is politically divided among 3 countries.', 'answer': 'True'},
+ {'question': '&quot;Mongolia&quot; was a part of the now non-existent U.S.S.R.', 'answer': 'False'},
+ {'question': 'The capital of the US State Ohio is the city of Chillicothe.', 'answer': 'False'},
+ {'question': 'You could walk from Norway to North Korea while only passing through Russia.', 'answer': 'True'},
+ {'question': 'Japan has left-hand side traffic.', 'answer': 'True'},
+ {'question': 'Liechtenstein does not have an airport.', 'answer': 'True'},
+  {'question': 'The title of the 1969 film &quot;Krakatoa, East_of Java&quot; is incorrect, as Krakatoa is in fact west of Java.', 'answer': 'True'}]
+q_list_fist_element: {'question': 'The flag of South Africa features 7 colours.', 'answer': 'False'}
+q_list_fist_ques_element: The flag of South Africa features 7 colours.
+q_list: [{'question': 'Seoul is the capital of North Korea.', 'answer': 'False'},
+ {'question': 'The surface area of Russia is slightly larger than that of the dwarf planet Pluto.', 'answer': 'True'},
+  {'question': 'Israel is 7 hours ahead of New York.', 'answer': 'True'},
+  {'question': 'Gothenburg is the capital of Sweden.', 'answer': 'False'},
+   {'question': '&quot;Mongolia&quot; was a part of the now non-existent U.S.S.R.', 'answer': 'False'},
+   {'question': 'The capital of the US State Ohio is the city of Chillicothe.', 'answer': 'False'},
+   {'question': 'Antarctica is the largest desert in the world.', 'answer': 'True'},
+   {'question': 'You could walk from Norway to North Korea while only passing through Russia.', 'answer': 'True'},
+    {'question': 'Japan has left-hand side traffic.', 'answer': 'True'},
+    {'question': 'Norway has a larger land area than Sweden.', 'answer': 'False'}]
+q_list_fist_element: {'question': 'Seoul is the capital of North Korea.', 'answer': 'False'}
+q_list_fist_ques_element: Seoul is the capital of North Korea.
